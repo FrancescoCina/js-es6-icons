@@ -90,7 +90,9 @@ selectElement.addEventListener("change", () => {
 });
 
 
+// INPUT & BUTTON FILTER
 
+/* 
 let inputElement = document.getElementById("search-id");
 let buttonForm = document.getElementById("button");
 
@@ -110,5 +112,24 @@ buttonForm.addEventListener("click", () => {
     goPrintIcon(filteredIconsFromName, iconElement);
 });
 
+ */
 
 
+// REAL TIME FILTER
+
+let inputElement = document.getElementById("search-id");
+
+inputElement.addEventListener("keyup", () => {
+    let inputValue = inputElement.value.toLowerCase();
+
+    // FILTER LOGIC FOR NAME PROPERTY
+
+    const filteredIconsFromName = icons.filter((icon) => {
+        if (icon.name.includes(inputValue)) {
+            return true;
+        }
+        return false;
+    });
+    console.table(filteredIconsFromName);
+    goPrintIcon(filteredIconsFromName, iconElement);
+});
