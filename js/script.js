@@ -3,7 +3,7 @@
 const goPrintIcon = (arr, targetElement) => {
     let totalElements = "";
 
-    let printIcon = arr.forEach((icon, index) => {
+    arr.forEach((icon, index) => {
 
         // Gestione OFFSET
         let hasOffset = "";
@@ -43,7 +43,7 @@ const selectElement = document.getElementById("filter-form");
 
 const uniqueTypes = [];
 
-const iconsValues = icons.forEach((icon) => {
+icons.forEach((icon) => {
     if (!uniqueTypes.includes(icon.type)) {
         uniqueTypes.push(icon.type);
     }
