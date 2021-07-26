@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+body{
+    font-family: 'Merriweather', serif;
+}
+
+.light-blue{
+    color:#29b1dd;
+}
+
+.bg-light-blue{
+    background-color:#29b1dd;
+}
+
+.top-header, 
+.bottom-header{
+    height:60px;
+}
+
+#icons{
+    height: calc(100vh - 120px);
+    background-color: #dddddd;
+    
+}
