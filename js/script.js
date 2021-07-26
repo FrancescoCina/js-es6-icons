@@ -32,12 +32,72 @@ let iconElement = document.getElementById("icon");
 
 goPrintIcon(icons);
 
-// FILTER LOGICS  
-
 
 // Prendo la select in HTML
 
 const selectElement = document.getElementById("filter-form");
+
+// STAMPA SELECT DA JS
+
+// Creo array con valori di options validi 
+
+const uniqueTypes = [];
+
+const iconsValues = icons.forEach((icon) => {
+    if (!uniqueTypes.includes(icon.type)) {
+        uniqueTypes.push(icon.type);
+    }
+});
+
+console.log(uniqueTypes);
+
+
+
+// STAMPO IN HTML LA SELECT FORMATA DAI VALORI DELLA PROPRIETA' TYPE INTERNA ALL'ARRAY DI OGGETTI "ICONS"
+
+let optionsRendered = '<option selected value="all">Tutti</option>';
+
+const renderFormFilter = uniqueTypes.forEach((option) => {
+    optionsRendered +=
+        `
+        <option value="${option}">${option}</option>        
+        `
+    console.log(optionsRendered);
+    selectElement.innerHTML = optionsRendered;
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// FILTER LOGICS  
+
+
 
 // AGGIUNTO EVENT LISTENER AL CAMBIO SELECT
 
@@ -58,4 +118,7 @@ selectElement.addEventListener("change", () => {
     goPrintIcon(filteredIcons);
 
 });
+
+
+
 
