@@ -1,30 +1,61 @@
+// FUNCTION DECLARATION
+
+const goPrintIcon = (arr) => {
+    let totalElements = "";
+
+    let printIcon = arr.forEach((icon, index) => {
+
+        // Gestione OFFSET
+        let hasOffset = "";
+        if (index % 5 === 0) {
+            hasOffset = "offset-md-1";
+        }
+        icon =
+            `
+        <div class="col col-sm-4 col-md-2 ${hasOffset}">
+            <div class="card">
+                <div class="card-body">
+                    <i class="${icon.family} ${icon.prefix}${icon.name} fa-3x ${icon.type}"></i>
+                    <h6 class="py-2 text-center">${icon.name}</h6>
+                </div>
+            </div>
+        </div>
+        `
+        totalElements += icon;
+        return iconElement.innerHTML = totalElements;
+    });
+}
+
 // STAMPARE CON CICLO FOR EACH SU ARRAY ICONS LE CARTE IN HTML
 
 let iconElement = document.getElementById("icon");
 
-let totalIcons = "";
-let printIcon = icons.forEach((icon, index) => {
+goPrintIcon(icons);
 
-    // Gestione OFFSET
-    let hasOffset = "";
-    if (index % 5 === 0) {
-        hasOffset = "offset-md-1";
+// FILTER LOGICS  
+
+
+// Prendo la select in HTML
+
+const selectElement = document.getElementById("filter-form");
+
+// AGGIUNTO EVENT LISTENER AL CAMBIO SELECT
+
+selectElement.addEventListener("change", () => {
+    let selectValue = selectElement.value;
+    // Se filtro "all" --> stampo tutte le icone in HTML
+    if (selectValue === "all") {
+        goPrintIcon(icons);
     }
-    icon =
-        `
-    <div class="col col-sm-4 col-md-2 ${hasOffset}">
-        <div class="card">
-            <div class="card-body">
-                <i class="${icon.family} ${icon.prefix}${icon.name} fa-3x ${icon.type}"></i>
-                <h6 class="py-2 text-center">${icon.name}</h6>
-            </div>
-        </div>
-    </div>
-    `
-    totalIcons += icon;
-    iconElement.innerHTML = totalIcons;
+    // Mi creo array con metodo filter per filtrare solo dati validi 
+    const filteredIcons = icons.filter((icon) => {
+        if (selectValue === icon.type) {
+            return true;
+        }
+        return false;
+    });
+    // Stampo l'array filtrato
+    goPrintIcon(filteredIcons);
+
 });
-
-
-
 
