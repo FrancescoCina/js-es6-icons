@@ -21,7 +21,35 @@ body{
 }
 
 #icons{
-    height: calc(100vh - 120px);
+    /* height: calc(100vh - 120px); */
     background-color: #dddddd;
     
+}
+
+
+/* COLOR OF ICONS */
+
+.animal{
+    color:#0000ff;
+}
+
+.vegetable{
+    color:#ffa500;
+}
+
+.user{
+    color:#800080;
+}
+
+.company{
+    color:red;
+}
+
+/* ----------------- */
+
+/* GRAPHIC ISSUE ABOUT CARD */
+
+.card{
+    border-radius: 10px;
+    box-shadow: 1px 1px #9b9b9b;
 }

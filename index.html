@@ -36,12 +36,12 @@
     <main>
         <section id="icons" class="pt-5">
             <div class="container">
-                <div class="row g-5">
-                    <div class="col">
+                <div class="row py-3 g-5" id="icon">
+                    <div class="col col-sm-4 col-md-2 offset-md-1">
                         <div class="card">
                             <div class="card-body">
-                                <i class="fas fa-cat fa-3x"></i>
-                                <h6 class="py-2 text-center">CAT</h6>
+                                <i class="${icon.family} ${icon.prefix}${icon.name} fa-3x ${icon.type}"></i>
+                                <h6 class="py-2 text-center">${icon.name}</h6>
                             </div>
                         </div>
                     </div>
