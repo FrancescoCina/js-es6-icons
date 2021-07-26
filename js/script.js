@@ -1,6 +1,6 @@
 // FUNCTION DECLARATION
 
-const goPrintIcon = (arr) => {
+const goPrintIcon = (arr, targetElement) => {
     let totalElements = "";
 
     let printIcon = arr.forEach((icon, index) => {
@@ -22,7 +22,7 @@ const goPrintIcon = (arr) => {
         </div>
         `
         totalElements += icon;
-        return iconElement.innerHTML = totalElements;
+        return targetElement.innerHTML = totalElements;
     });
 }
 
@@ -30,7 +30,7 @@ const goPrintIcon = (arr) => {
 
 let iconElement = document.getElementById("icon");
 
-goPrintIcon(icons);
+goPrintIcon(icons, iconElement);
 
 
 // Prendo la select in HTML
@@ -52,7 +52,6 @@ const iconsValues = icons.forEach((icon) => {
 console.log(uniqueTypes);
 
 
-
 // STAMPO IN HTML LA SELECT FORMATA DAI VALORI DELLA PROPRIETA' TYPE INTERNA ALL'ARRAY DI OGGETTI "ICONS"
 
 let optionsRendered = '<option selected value="all">Tutti</option>';
@@ -66,35 +65,6 @@ const renderFormFilter = uniqueTypes.forEach((option) => {
     selectElement.innerHTML = optionsRendered;
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // FILTER LOGICS  
 
 
@@ -105,7 +75,7 @@ selectElement.addEventListener("change", () => {
     let selectValue = selectElement.value;
     // Se filtro "all" --> stampo tutte le icone in HTML
     if (selectValue === "all") {
-        goPrintIcon(icons);
+        goPrintIcon(icons, iconElement);
     }
     // Mi creo array con metodo filter per filtrare solo dati validi 
     const filteredIcons = icons.filter((icon) => {
@@ -115,10 +85,30 @@ selectElement.addEventListener("change", () => {
         return false;
     });
     // Stampo l'array filtrato
-    goPrintIcon(filteredIcons);
+    goPrintIcon(filteredIcons, iconElement);
 
 });
 
+
+
+let inputElement = document.getElementById("search-id");
+let buttonForm = document.getElementById("button");
+
+
+buttonForm.addEventListener("click", () => {
+    let inputValue = inputElement.value.toLowerCase();
+
+    // FILTER LOGIC FOR NAME PROPERTY
+
+    const filteredIconsFromName = icons.filter((icon) => {
+        if (icon.name.includes(inputValue)) {
+            return true;
+        }
+        return false;
+    });
+    console.table(filteredIconsFromName);
+    goPrintIcon(filteredIconsFromName, iconElement);
+});
 
 
 
