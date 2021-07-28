@@ -13,7 +13,7 @@ const goPrintIcon = (arr, targetElement) => {
         icon =
             `
         <div class="col col-sm-4 col-md-2 ${hasOffset}">
-            <div class="card">
+            <div class="card h-100">
                 <div class="card-body">
                     <i class="${icon.family} ${icon.prefix}${icon.name} fa-3x ${icon.type}"></i>
                     <h6 class="py-2 text-center">${icon.name}</h6>

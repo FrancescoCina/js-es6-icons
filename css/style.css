@@ -21,9 +21,8 @@ body{
 }
 
 #icons{
-    /* height: calc(100vh - 120px); */
-    background-color: #dddddd;
-    
+    min-height: calc(100vh - 120px);
+    background-color: #dddddd; 
 }
 
 
